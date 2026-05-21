@@ -1,16 +1,10 @@
-# React + Vite
+**Cose fatte**
+- visualizzazione in grid dei post
+- possibilità di aggiungere un nuovo post (solo lato client, non viene fatta una post vera)
+- aggiunto un filtro sui post per cercare nei titoli
+-stilizzazione rapida tramite tailwind e daisyui
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Cose non fatte / che avrei fatto con più tempo**
+- paginazione dei post (non essenziale, pochi post al momento)
+- effettiva chiamata post ad una REST api
+- filtraggio più approfondito
