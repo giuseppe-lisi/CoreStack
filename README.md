@@ -8,3 +8,10 @@
 - paginazione dei post (non essenziale, pochi post al momento)
 - effettiva chiamata post ad una REST api
 - filtraggio più approfondito
+
+**INSTALLAZIONE**
+`npm i`
+
+`npm run dev`
+
+navigare al localhost fornito in console
