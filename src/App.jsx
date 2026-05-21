@@ -7,6 +7,7 @@ function App() {
     title: "",
     body: "",
   });
+  const [filter, setFilter] = useState("");
   const [loading, setLoading] = useState(true);
 
   // Retrieval post on page load
@@ -20,8 +21,8 @@ function App() {
       .catch((err) => console.log(err.message));
   }, []);
 
+  // Scroll to post form with useRef
   const newPostRef = useRef();
-
   const scrollToForm = () => {
     newPostRef.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -56,9 +57,12 @@ function App() {
     <>
       <div className="flex justify-between px-5 my-5">
         <h1 className="text-3xl font-bold">MOCKUP SITE</h1>
-        <button className="btn btn-neutral" onClick={scrollToForm}>
-          Create Post
-        </button>
+        <div className="flex gap-x-2">
+          <input type="text" placeholder="Find a post..." className="input" value={filter} onChange={(e) => setFilter(e.target.value)}/>
+          <button className="btn btn-neutral" onClick={scrollToForm}>
+            Create Post
+          </button>
+        </div>
       </div>
 
       {/* App body */}
@@ -66,17 +70,24 @@ function App() {
         {loading ? (
           <h3 className="flex justify-center mt-50">Page is Loading</h3>
         ) : (
-          posts.map((post) => {
-            return (
-              <div key={post.id} className="card shadow-sm bg-primary-content">
-                <div className="card-body">
-                  <small>User: {post.userId}</small>
-                  <h2 className="card-title text-xl">{post.title}</h2>
-                  <p>{post.body}</p>
+          posts
+            .filter((post) => {
+              return post.body.includes(filter) ? true : false;
+            })
+            .map((post) => {
+              return (
+                <div
+                  key={post.id}
+                  className="card shadow-sm bg-primary-content"
+                >
+                  <div className="card-body">
+                    <small>User: {post.userId}</small>
+                    <h2 className="card-title text-xl">{post.title}</h2>
+                    <p>{post.body}</p>
+                  </div>
                 </div>
-              </div>
-            );
-          })
+              );
+            })
         )}
       </div>
 
